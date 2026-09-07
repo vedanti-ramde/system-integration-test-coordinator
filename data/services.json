@@ -1,0 +1,62 @@
+[
+  {
+    "id": "SRV-AUTH-01",
+    "name": "Authentication Service",
+    "type": "REST API",
+    "owner": "Security Team",
+    "baseUrl": "https://auth.internal.corp/api/v1",
+    "environment": "QA",
+    "status": "Active",
+    "description": "Manages JWT tokens, SSO session lifecycle, and OAuth credentials for internal microservices."
+  },
+  {
+    "id": "SRV-USER-02",
+    "name": "User Service",
+    "type": "Microservice",
+    "owner": "Core Platform Team",
+    "baseUrl": "https://users.internal.corp/api/v1",
+    "environment": "QA",
+    "status": "Active",
+    "description": "Handles user profile identities, role-based access control, and user profile sync."
+  },
+  {
+    "id": "SRV-ORDER-03",
+    "name": "Order Management Service",
+    "type": "Microservice",
+    "owner": "Commerce Team",
+    "baseUrl": "https://orders.internal.corp/api/v1",
+    "environment": "QA",
+    "status": "Active",
+    "description": "Coordinates checkout pipelines, shopping cart processing, and stateful order workflows."
+  },
+  {
+    "id": "SRV-PAY-04",
+    "name": "Payment Gateway Service",
+    "type": "Gateway",
+    "owner": "Fintech Team",
+    "baseUrl": "https://payments.internal.corp/api/v1",
+    "environment": "QA",
+    "status": "Active",
+    "description": "Interfaces with merchant payment gateways for card transactions, payouts, and refund handshakes."
+  },
+  {
+    "id": "SRV-NOTIF-05",
+    "name": "Notification Service",
+    "type": "Queue/Service",
+    "owner": "Customer Engagement",
+    "baseUrl": "https://notif.internal.corp/api/v1",
+    "environment": "QA",
+    "status": "Active",
+    "description": "Dispatches asynchronous transactional email receipts, SMS OTP alerts, and webhook notifications."
+  },
+  {
+    "id": "SRV-INV-06",
+    "name": "Inventory Service",
+    "type": "Microservice",
+    "owner": "Supply Chain Team",
+    "baseUrl": "https://inventory.internal.corp/api/v1",
+    "environment": "QA",
+    "status": "Maintenance",
+    "description": "Tracks warehouse inventory levels, SKU allocations, warehouse bin locations, and restock locks."
+  }
+]

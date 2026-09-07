@@ -1,0 +1,23 @@
+{
+  "name": "sit-coordinator",
+  "version": "1.0.0",
+  "description": "System Integration Test (SIT) Coordinator - Management Dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test_suite.js"
+  },
+  "keywords": [
+    "sit",
+    "integration-testing",
+    "dashboard",
+    "handshake-simulator"
+  ],
+  "author": "SIT Team",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
