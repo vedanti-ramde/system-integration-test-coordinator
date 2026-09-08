@@ -70,6 +70,7 @@
 
   <!-- Main Content Wrapper -->
   <div class="main-wrapper">
+
     <!-- Top Header -->
     <header class="top-header">
       <div class="header-left">
@@ -78,11 +79,15 @@
         </button>
         <h1 class="header-title">System Integration Dashboard</h1>
       </div>
+
       <div class="header-right">
         <div id="apiHealthIndicator">
           <span class="badge bg-secondary-subtle text-secondary">Checking API...</span>
         </div>
-        <button class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1" id="refreshDashboardBtn" title="Refresh Metrics">
+
+        <button class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1"
+                id="refreshDashboardBtn"
+                title="Refresh Metrics">
           <i class="bi bi-arrow-clockwise"></i> Refresh
         </button>
       </div>
@@ -90,44 +95,61 @@
 
     <!-- Page Content Container -->
     <main class="content-container">
-      
+
       <!-- 8 Dynamic Metric Cards -->
       <div class="row g-3 mb-4">
+
         <!-- Total Services -->
         <div class="col-xl-3 col-md-6">
           <div class="stat-card stat-blue">
             <div class="stat-icon"><i class="bi bi-boxes"></i></div>
             <div class="stat-label">Total Services</div>
             <div class="stat-value" id="cardTotalServices">—</div>
-            <div class="stat-subtext"><i class="bi bi-check-circle text-success"></i> Registered in SIT catalog</div>
+            <div class="stat-subtext">
+              <i class="bi bi-check-circle text-success"></i>
+              Registered in SIT catalog
+            </div>
           </div>
         </div>
+
         <!-- Total Integrations -->
         <div class="col-xl-3 col-md-6">
           <div class="stat-card stat-purple">
             <div class="stat-icon"><i class="bi bi-diagram-3"></i></div>
             <div class="stat-label">Total Integrations</div>
             <div class="stat-value" id="cardTotalIntegrations">—</div>
-            <div class="stat-subtext"><i class="bi bi-arrow-left-right text-primary"></i> Service communication paths</div>
+            <div class="stat-subtext">
+              <i class="bi bi-arrow-left-right text-primary"></i>
+              Service communication paths
+            </div>
           </div>
         </div>
+
         <!-- Total Tests -->
         <div class="col-xl-3 col-md-6">
           <div class="stat-card stat-cyan">
             <div class="stat-icon"><i class="bi bi-check2-all"></i></div>
             <div class="stat-label">Handshake Tests</div>
             <div class="stat-value" id="cardTotalTests">—</div>
-            <div class="stat-subtext"><i class="bi bi-clock-history text-info"></i> Logged test executions</div>
+            <div class="stat-subtext">
+              <i class="bi bi-clock-history text-info"></i>
+              Logged test executions
+            </div>
           </div>
         </div>
+
         <!-- SIT Pass Rate -->
         <div class="col-xl-3 col-md-6">
           <div class="stat-card stat-green">
             <div class="stat-icon"><i class="bi bi-percent"></i></div>
             <div class="stat-label">SIT Pass Rate</div>
             <div class="stat-value" id="cardPassRate">—%</div>
+
             <div class="progress mt-2" style="height: 6px;">
-              <div class="progress-bar bg-success" id="passRateBar" style="width: 0%;"></div>
+              <div class="progress-bar bg-success"
+                   id="passRateBar"
+                   style="width: 0%;">
+              </div>
             </div>
           </div>
         </div>
@@ -138,109 +160,236 @@
             <div class="stat-icon"><i class="bi bi-patch-check"></i></div>
             <div class="stat-label">Passed Tests</div>
             <div class="stat-value text-success" id="cardPassedTests">—</div>
-            <div class="stat-subtext text-success"><i class="bi bi-arrow-up-short"></i> Handshakes verified</div>
+            <div class="stat-subtext text-success">
+              <i class="bi bi-arrow-up-short"></i>
+              Handshakes verified
+            </div>
           </div>
         </div>
+
         <!-- Failed Tests -->
         <div class="col-xl-3 col-md-6">
           <div class="stat-card stat-red">
             <div class="stat-icon"><i class="bi bi-x-octagon"></i></div>
             <div class="stat-label">Failed Tests</div>
             <div class="stat-value text-danger" id="cardFailedTests">—</div>
-            <div class="stat-subtext text-danger"><i class="bi bi-exclamation-triangle"></i> Protocol / latency faults</div>
+            <div class="stat-subtext text-danger">
+              <i class="bi bi-exclamation-triangle"></i>
+              Protocol / latency faults
+            </div>
           </div>
         </div>
+
         <!-- Open Defects -->
         <div class="col-xl-3 col-md-6">
           <div class="stat-card stat-amber">
             <div class="stat-icon"><i class="bi bi-bug"></i></div>
             <div class="stat-label">Open Defects</div>
             <div class="stat-value text-warning" id="cardOpenDefects">—</div>
-            <div class="stat-subtext"><span id="cardTotalDefects">0</span> total logged defects</div>
+            <div class="stat-subtext">
+              <span id="cardTotalDefects">0</span>
+              total logged defects
+            </div>
           </div>
         </div>
+
         <!-- Critical Defects -->
         <div class="col-xl-3 col-md-6">
           <div class="stat-card stat-red">
-            <div class="stat-icon"><i class="bi bi-lightning-charge"></i></div>
+            <div class="stat-icon">
+              <i class="bi bi-lightning-charge"></i>
+            </div>
             <div class="stat-label">Critical Defects</div>
             <div class="stat-value text-danger" id="cardCriticalDefects">—</div>
-            <div class="stat-subtext text-danger"><i class="bi bi-shield-x"></i> High-risk integration blockers</div>
+            <div class="stat-subtext text-danger">
+              <i class="bi bi-shield-x"></i>
+              High-risk integration blockers
+            </div>
           </div>
         </div>
+
       </div>
 
       <!-- Simulator and Visual Charts Row -->
       <div class="row g-4 mb-4">
+
         <!-- Live API Handshake Simulator Panel -->
         <div class="col-lg-6">
           <div class="card-panel h-100">
+
             <div class="card-panel-header">
               <h2 class="card-panel-title">
-                <i class="bi bi-broadcast text-primary"></i> Live API Handshake Simulator
+                <i class="bi bi-broadcast text-primary"></i>
+                Live API Handshake Simulator
               </h2>
-              <span class="badge bg-primary-subtle text-primary">Simulation Engine</span>
+              <span class="badge bg-primary-subtle text-primary">
+                Simulation Engine
+              </span>
             </div>
+
             <div class="card-panel-body">
+
               <p class="text-muted small mb-3">
-                Select an integration endpoint to simulate real-time API latency, HTTP status handshake, and verification logs.
+                Select an integration endpoint to simulate real-time API latency,
+                HTTP status handshake, and verification logs.
               </p>
 
               <form id="simulatorForm">
+
                 <div class="mb-3">
-                  <label for="simIntegrationSelect" class="form-label">Select Integration to Ping</label>
-                  <select class="form-select" id="simIntegrationSelect" required>
-                    <option value="" disabled selected>Loading integrations...</option>
+                  <label for="simIntegrationSelect" class="form-label">
+                    Select Integration to Ping
+                  </label>
+
+                  <select class="form-select"
+                          id="simIntegrationSelect"
+                          required>
+                    <option value="" disabled selected>
+                      Loading integrations...
+                    </option>
                   </select>
                 </div>
 
-                <div id="simIntegrationDetails" class="p-3 bg-light rounded-3 mb-3 border d-none">
+                <div id="simIntegrationDetails"
+                     class="p-3 bg-light rounded-3 mb-3 border d-none">
+
                   <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="fw-bold small text-muted">TARGET ENDPOINT:</span>
+                    <span class="fw-bold small text-muted">
+                      TARGET ENDPOINT:
+                    </span>
                     <span id="simDetailMethod"></span>
                   </div>
-                  <div class="font-monospace small text-primary mb-2" id="simDetailEndpoint">—</div>
+
+                  <div class="font-monospace small text-primary mb-2"
+                       id="simDetailEndpoint">
+                    —
+                  </div>
+
                   <div class="row g-2 small text-muted">
-                    <div class="col-6"><strong>Source:</strong> <span id="simDetailSource">—</span></div>
-                    <div class="col-6"><strong>Target:</strong> <span id="simDetailTarget">—</span></div>
-                    <div class="col-6"><strong>Auth Type:</strong> <span id="simDetailAuth">—</span></div>
-                    <div class="col-6"><strong>Current Health:</strong> <span id="simDetailStatus">—</span></div>
+
+                    <div class="col-6">
+                      <strong>Source:</strong>
+                      <span id="simDetailSource">—</span>
+                    </div>
+
+                    <div class="col-6">
+                      <strong>Target:</strong>
+                      <span id="simDetailTarget">—</span>
+                    </div>
+
+                    <div class="col-6">
+                      <strong>Auth Type:</strong>
+                      <span id="simDetailAuth">—</span>
+                    </div>
+
+                    <div class="col-6">
+                      <strong>Current Health:</strong>
+                      <span id="simDetailStatus">—</span>
+                    </div>
+
                   </div>
                 </div>
 
                 <div class="d-flex gap-2">
-                  <button type="button" class="btn btn-primary flex-grow-1 d-flex align-items-center justify-content-center gap-2" id="runPingBtn" disabled>
-                    <i class="bi bi-play-circle-fill"></i> Run Handshake Ping
+
+                  <button type="button"
+                          class="btn btn-primary flex-grow-1 d-flex align-items-center justify-content-center gap-2"
+                          id="runPingBtn"
+                          disabled>
+                    <i class="bi bi-play-circle-fill"></i>
+                    Run Handshake Ping
                   </button>
+
                   <div class="form-check d-flex align-items-center ms-2">
-                    <input class="form-check-input" type="checkbox" id="simAutoSaveCheck" checked>
-                    <label class="form-check-label small ms-1" for="simAutoSaveCheck">Auto-save to Tests</label>
+
+                    <input class="form-check-input"
+                           type="checkbox"
+                           id="simAutoSaveCheck"
+                           checked>
+
+                    <label class="form-check-label small ms-1"
+                           for="simAutoSaveCheck">
+                      Auto-save to Tests
+                    </label>
+
                   </div>
+
                 </div>
+
               </form>
 
               <!-- Simulator Results Output Console -->
               <div id="simulatorResultBox" class="mt-3 d-none">
+
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="fw-bold small">Handshake Output:</span>
-                  <div class="d-flex gap-2 align-items-center" id="simResultBadges"></div>
+
+                  <span class="fw-bold small">
+                    Handshake Output:
+                  </span>
+
+                  <div class="d-flex gap-2 align-items-center"
+                       id="simResultBadges">
+                  </div>
+
                 </div>
 
                 <div class="simulator-console">
-                  <div class="cmd-line">> Handshake ping dispatched...</div>
-                  <div class="mt-1"><span class="key">Request:</span> <span class="val-str" id="simOutUrl"></span></div>
-                  <div><span class="key">Response Code:</span> <span id="simOutCode"></span></div>
-                  <div><span class="key">Roundtrip Latency:</span> <span class="val-num" id="simOutLatency"></span></div>
-                  <div><span class="key">Result:</span> <span id="simOutResult"></span></div>
-                  <div><span class="key">Timestamp:</span> <span class="text-muted" id="simOutTime"></span></div>
-                  <div class="mt-2 text-info" id="simOutRemarks"></div>
-                  <div class="mt-2 text-muted small">Payload Response:</div>
-                  <pre class="m-0 text-success" id="simOutPayload" style="font-size: 0.75rem; max-height: 120px; overflow-y: auto;"></pre>
+
+                  <div class="cmd-line">
+                    > Handshake ping dispatched...
+                  </div>
+
+                  <div class="mt-1">
+                    <span class="key">Request:</span>
+                    <span class="val-str" id="simOutUrl"></span>
+                  </div>
+
+                  <div>
+                    <span class="key">Response Code:</span>
+                    <span id="simOutCode"></span>
+                  </div>
+
+                  <div>
+                    <span class="key">Roundtrip Latency:</span>
+                    <span class="val-num" id="simOutLatency"></span>
+                  </div>
+
+                  <div>
+                    <span class="key">Result:</span>
+                    <span id="simOutResult"></span>
+                  </div>
+
+                  <div>
+                    <span class="key">Timestamp:</span>
+                    <span class="text-muted" id="simOutTime"></span>
+                  </div>
+
+                  <div class="mt-2 text-info"
+                       id="simOutRemarks">
+                  </div>
+
+                  <div class="mt-2 text-muted small">
+                    Payload Response:
+                  </div>
+
+                  <pre class="m-0 text-success"
+                       id="simOutPayload"
+                       style="font-size: 0.75rem; max-height: 120px; overflow-y: auto;">
+                  </pre>
+
                 </div>
 
-                <div class="mt-2 text-end" id="simSaveBtnWrapper">
-                  <span class="text-success small me-2 d-none" id="simSavedAlert"><i class="bi bi-check-circle-fill"></i> Logged to Test Database!</span>
+                <div class="mt-2 text-end"
+                     id="simSaveBtnWrapper">
+
+                  <span class="text-success small me-2 d-none"
+                        id="simSavedAlert">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Logged to Test Database!
+                  </span>
+
                 </div>
+
               </div>
 
             </div>
@@ -249,48 +398,81 @@
 
         <!-- Charts Column -->
         <div class="col-lg-6">
+
           <div class="card-panel mb-4">
+
             <div class="card-panel-header">
+
               <h2 class="card-panel-title">
-                <i class="bi bi-pie-chart text-success"></i> Handshake Test Results Breakdown
+                <i class="bi bi-pie-chart text-success"></i>
+                Handshake Test Results Breakdown
               </h2>
+
             </div>
+
             <div class="card-panel-body">
+
               <div style="height: 220px; position: relative;">
                 <canvas id="testResultsChart"></canvas>
               </div>
+
             </div>
+
           </div>
 
           <div class="card-panel">
+
             <div class="card-panel-header">
+
               <h2 class="card-panel-title">
-                <i class="bi bi-bar-chart-steps text-danger"></i> Defect Severity Distribution
+                <i class="bi bi-bar-chart-steps text-danger"></i>
+                Defect Severity Distribution
               </h2>
+
             </div>
+
             <div class="card-panel-body">
+
               <div style="height: 200px; position: relative;">
                 <canvas id="defectSeverityChart"></canvas>
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
 
       <!-- Recent Handshake Tests & Defects Tables Row -->
       <div class="row g-4">
+
         <!-- Recent Tests Table -->
         <div class="col-lg-6">
+
           <div class="card-panel h-100">
+
             <div class="card-panel-header">
+
               <h2 class="card-panel-title">
-                <i class="bi bi-clock-history text-primary"></i> Recent Handshake Tests
+                <i class="bi bi-clock-history text-primary"></i>
+                Recent Handshake Tests
               </h2>
-              <a href="tests.html" class="btn btn-sm btn-outline-secondary">View All Tests</a>
+
+              <a href="tests.html"
+                 class="btn btn-sm btn-outline-secondary">
+                View All Tests
+              </a>
+
             </div>
+
             <div class="card-panel-body p-0">
+
               <div class="table-responsive">
+
                 <table class="table custom-table mb-0">
+
                   <thead>
                     <tr>
                       <th>Test ID</th>
@@ -300,27 +482,53 @@
                       <th>Latency</th>
                     </tr>
                   </thead>
+
                   <tbody id="recentTestsTableBody">
-                    <tr><td colspan="5" class="text-center py-4 text-muted">Loading test records...</td></tr>
+
+                    <tr>
+                      <td colspan="5"
+                          class="text-center py-4 text-muted">
+                        Loading test records...
+                      </td>
+                    </tr>
+
                   </tbody>
+
                 </table>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
 
         <!-- Recent Defects Table -->
         <div class="col-lg-6">
+
           <div class="card-panel h-100">
+
             <div class="card-panel-header">
+
               <h2 class="card-panel-title">
-                <i class="bi bi-bug-fill text-danger"></i> Recent Integration Defects
+                <i class="bi bi-bug-fill text-danger"></i>
+                Recent Integration Defects
               </h2>
-              <a href="defects.html" class="btn btn-sm btn-outline-secondary">View All Defects</a>
+
+              <a href="defects.html"
+                 class="btn btn-sm btn-outline-secondary">
+                View All Defects
+              </a>
+
             </div>
+
             <div class="card-panel-body p-0">
+
               <div class="table-responsive">
+
                 <table class="table custom-table mb-0">
+
                   <thead>
                     <tr>
                       <th>Defect ID</th>
@@ -330,17 +538,37 @@
                       <th>Status</th>
                     </tr>
                   </thead>
+
                   <tbody id="recentDefectsTableBody">
-                    <tr><td colspan="5" class="text-center py-4 text-muted">Loading defect logs...</td></tr>
+
+                    <tr>
+                      <td colspan="5"
+                          class="text-center py-4 text-muted">
+                        Loading defect logs...
+                      </td>
+                    </tr>
+
                   </tbody>
+
                 </table>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
 
     </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      Design and developed by Vedanti Ramde (CS23153)
+    </footer>
+
   </div>
 
   <!-- Scripts -->
@@ -348,5 +576,9 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/dashboard.js"></script>
+
 </body>
 </html>
+
+
+

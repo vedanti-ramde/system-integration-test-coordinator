@@ -670,3 +670,10 @@ body {
     display: block;
   }
 }
+
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  font-size: 14px;
+}
